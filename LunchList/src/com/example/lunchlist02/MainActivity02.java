@@ -50,7 +50,7 @@ public class MainActivity02 extends ActionBarActivity{
 			case R.id.sit_down:
 				r.setType("Sit_down");
 				break;
-			case R.id.take_out:
+			case R.id.take_away:
 				r.setType("Take Out");
 				break;
 			case R.id.delivery:
