@@ -73,7 +73,7 @@ public class MainActivity extends TabActivity{
 		Button save= (Button)findViewById(R.id.save);
 		ListView list=(ListView)findViewById(R.id.restaurants);
 		helper= new RestaurantHelper(this);
-		models= helper.getAll();
+//		models= helper.getAll();
 		startManagingCursor(models);
 		adapter= new RestaurantAdapter(models);
 		

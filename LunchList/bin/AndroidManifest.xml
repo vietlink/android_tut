@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme" >
        
         <activity 
-            android:name=".lunchlist06.MainActivity"
+            android:name=".lunchlist09.MainActivity"
             android:label="@string/app_name">
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +24,8 @@
                 
             </intent-filter> 
         </activity>
+        <activity android:name=".lunchlist09.DetailForm"></activity>
+        <activity android:name=".lunchlist09.EditPreference"></activity>
     </application>
 
 </manifest>

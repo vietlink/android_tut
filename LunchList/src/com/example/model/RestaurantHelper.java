@@ -13,7 +13,7 @@ public class RestaurantHelper extends SQLiteOpenHelper{
 	private static final String onCreateCommand=
 	"CREATE TABLE restaurants (_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, address TEXT, type TEXT, note TEXT);";
 	private static final String getAllCommand=
-	"SELECT _id, name, address, type, note FROM restaurants ORDER BY name";
+	"SELECT _id, name, address, type, note FROM restaurants ORDER BY ";
 	public RestaurantHelper(Context context) {
 		super(context, DATABASE_NAME, null, SCHEMA_VERSION);
 		// TODO Auto-generated constructor stub
@@ -38,8 +38,8 @@ public class RestaurantHelper extends SQLiteOpenHelper{
 		cv.put("note", note);
 		getWritableDatabase().insert("restaurants", "name", cv);
 	}
-	public Cursor getAll(){
-		return (getReadableDatabase().rawQuery(getAllCommand, null));
+	public Cursor getAll(String orderBy){
+		return (getReadableDatabase().rawQuery(getAllCommand+orderBy, null));
 	}
 	//get value in name column
 	public String getName(Cursor c){
@@ -56,5 +56,19 @@ public class RestaurantHelper extends SQLiteOpenHelper{
 	//get value in note column
 	public String getNote(Cursor c){
 		return c.getString(4);
+	}
+	public Cursor getById (String id){
+		String[] args= {id};
+		return (getReadableDatabase().
+				rawQuery("SELECT _id, name, address, type, note FROM restaurants WHERE _id=?", args));
+	}
+	public void update (String id, String name, String address, String type, String note){
+		ContentValues cv= new ContentValues();
+		String[] args= {id};
+		cv.put("name", name );
+		cv.put("address", address);
+		cv.put("type", type);
+		cv.put("note", note);
+		getWritableDatabase().update("restaurants", cv, "_id=?", args);
 	}
 }

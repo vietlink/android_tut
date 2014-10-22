@@ -4,4 +4,9 @@
         android:title="Raise Toast"/>
 	<item android:id="@+id/long_work"
 	    android:title="Do long work"/>
+	<item android:id="@+id/add"
+	    android:title="Add"/>
+	<item android:id="@+id/prefs"
+	    android:title="Settings"
+	    />
 </menu>
